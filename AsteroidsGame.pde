@@ -41,6 +41,6 @@ public void draw()
     bob.setYspeed(0);
     bob.setCenterX(Math.random()*800);
     bob.setCenterY(Math.random()*800);
-    bob.setDirectionX(Math.random()*100*PI);
+    bob.setDirectionX(Math.random()*360);
   }
 }
