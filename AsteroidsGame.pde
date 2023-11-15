@@ -29,11 +29,11 @@ public void draw()
   }
   if(key == 'w')
   {
-     bob.accelerate(0.005);
+     bob.accelerate(0.001);
   }
   if(key == 's')
   {
-     bob.accelerate(-0.005);
+     bob.accelerate(-0.001);
   } 
      if(key == 'h')
   {
