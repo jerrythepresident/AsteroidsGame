@@ -8,7 +8,7 @@ public void setup()
   for(int i=0; i<night.length ;i++){
     night[i]=new Star();
   }
-  for(int i=0; i<10 ;i++){
+  for(int i=0; i<15;i++){
     danger.add(new Asteroid());
   }
 }
@@ -25,17 +25,24 @@ public void draw(){
    if(d<10){
    danger.remove(i);
 }
-   }
-    for(int i=0; i<shots.size(); i++){
-    shots.get(i).move();
-    shots.get(i).show();
-//    float d = dist((float)shots.get(i).myCenterX, (float)shots.get(i).myCenterY, (float)danger.get(i).myCenterX, (float)danger.get(i).myCenterY);
-//     if(d<10){
-//   shots.remove(i);
-//  }  
+    for(int j=0; j<shots.size(); j++){
+    shots.get(j).move();
+    shots.get(j).show();
+    float di = dist((float)shots.get(j).myCenterX, (float)shots.get(j).myCenterY, (float)danger.get(i).myCenterX, (float)danger.get(i).myCenterY);
+    if(di<10){
+   shots.remove(j);
+   danger.remove(i);
+   break;
+  }  
   }
+   }
     bob.show();
     bob.move();
+
+if(danger.size()==0){
+textSize(128);
+text("You WON!", 140, 400); 
+}
 }
 
 public void keyPressed(){
