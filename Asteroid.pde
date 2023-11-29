@@ -29,3 +29,4 @@ class Asteroid extends Floater
    super.move();
    }
 }
+   
