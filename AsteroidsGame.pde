@@ -41,7 +41,7 @@ public void draw(){
 
 if(danger.size()==0){
 textSize(128);
-text("You WON!", 140, 400); 
+text("You WON!", 120, 400); 
 }
 }
 
