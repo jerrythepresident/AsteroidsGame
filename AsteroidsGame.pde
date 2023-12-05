@@ -80,7 +80,7 @@ void keyPressed(){
     bob.setCenterY(Math.random()*800);
     bob.setDirectionX(Math.random()*360);
   }
-  else if(key == ' ' && shots.size()<=25){
+  else if(key == ' ' && shots.size()<=30){
     shots.add(new Bullet(bob));
   }
     if(bob.myXspeed>30){
