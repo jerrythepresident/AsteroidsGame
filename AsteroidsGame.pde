@@ -1,3 +1,7 @@
+boolean turnLeft = false;
+boolean turnRight = false;
+int accelerate = 0;
+
 private Star[] night = new Star[400];
 private ArrayList <Asteroid> danger = new ArrayList <Asteroid>();
 private ArrayList <Bullet> shots = new ArrayList <Bullet>();
@@ -38,42 +42,48 @@ public void draw(){
    }
     bob.show();
     bob.move();
+ if(turnLeft == true)
+    bob.turn(-4);
+  if(turnRight == true)
+    bob.turn(4);
+  if(accelerate == 1)
+    bob.accelerate(0.05);
+   if(accelerate == -1)
+    bob.accelerate(-0.05);
 
 if(danger.size()==0){
 textSize(128);
 text("You WON!", 120, 400); 
 }
+    if(bob.myXspeed>5){
+  bob.myXspeed=5;
+}
+if(bob.myYspeed>5){
+  bob.myYspeed=5;
+}
 }
 
-public void keyPressed(){
-   if(key == 'd')
-  {
-     bob.turn(10);
-  }
-    if(key == 'a')
-  {
-     bob.turn(-10);
-  }
-  if(key == 'w')
-  {
-     bob.accelerate(0.1);
-  }
-  if(key == 's')
-  {
-     bob.accelerate(-0.1);
-  } 
-     if(key == 'h')
-  {
+
+void keyPressed(){
+  if(key == 'w' || key == 'W')
+      accelerate = 1;
+   if(key == 's' || key == 'S')
+      accelerate = -1;
+  if(key == 'a' || key == 'A')
+      turnLeft = true;
+  if(key == 'd' || key == 'D')
+      turnRight = true;
+  if(key == 'h' || key == 'H'){
     bob.setXspeed(0);
     bob.setYspeed(0);
     bob.setCenterX(Math.random()*800);
     bob.setCenterY(Math.random()*800);
     bob.setDirectionX(Math.random()*360);
   }
-  else if(key == ' '){
+  else if(key == ' ' && shots.size()<=25){
     shots.add(new Bullet(bob));
   }
-  if(bob.myXspeed>30){
+    if(bob.myXspeed>30){
   bob.myXspeed=30;
 }
 if(bob.myYspeed>30){
@@ -81,8 +91,13 @@ if(bob.myYspeed>30){
 }
 }
 
-
-//use a and d to turn
-//use w and s to accelrate
-//h for hyperspace
-//press space to shoot
+void keyReleased(){
+    if(key == 'w' || key == 'W')
+      accelerate = 0;
+  if(key == 's' || key == 'S')
+      accelerate = 0;
+  if(key == 'a' || key == 'A')
+      turnLeft = false;
+  if(key == 'd' || key == 'D')
+      turnRight = false;
+}
