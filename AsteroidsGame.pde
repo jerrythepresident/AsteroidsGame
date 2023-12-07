@@ -84,11 +84,11 @@ void keyPressed(){
   else if(key == ' ' && shots.size()<=30){
     shots.add(new Bullet(bob));
   }
-    if(bob.myXspeed>30){
-  bob.myXspeed=30;
+    if(bob.myXspeed>5){
+  bob.myXspeed=5;
 }
-if(bob.myYspeed>30){
-  bob.myYspeed=30;
+if(bob.myYspeed>5){
+  bob.myYspeed=5;
 }
 }
 
