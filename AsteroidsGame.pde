@@ -26,8 +26,9 @@ public void draw(){
     danger.get(i).move();
     danger.get(i).show();
    float d = dist((float)bob.myCenterX, (float)bob.myCenterY, (float)danger.get(i).myCenterX, (float)danger.get(i).myCenterY);
-   if(d<10){
+   if(d<15){
    danger.remove(i);
+   break;
 }
     for(int j=0; j<shots.size(); j++){
     shots.get(j).move();
