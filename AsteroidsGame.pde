@@ -34,7 +34,7 @@ public void draw(){
     shots.get(j).move();
     shots.get(j).show();
     float di = dist((float)shots.get(j).myCenterX, (float)shots.get(j).myCenterY, (float)danger.get(i).myCenterX, (float)danger.get(i).myCenterY);
-    if(di<10){
+    if(di<15){
    shots.remove(j);
    danger.remove(i);
    break;
